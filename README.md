@@ -1,3 +1,11 @@
+# Grupo 6
+# Integrantes
+Miguel, Rodrigo
+Panesi, Guillermo
+Grilli, Geronimo
+Siminkowich, Alexis
+
+
 # Ordering
 
 Aplicación utilizada en la cursada 2018 de Ingenieria de Software. UTN-FRLP
