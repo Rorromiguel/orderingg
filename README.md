@@ -1,9 +1,9 @@
 # Grupo 6
 # Integrantes
-Miguel, Rodrigo
-Panesi, Guillermo
-Grilli, Geronimo
-Siminkowich, Alexis
+-Miguel, Rodrigo
+-Panesi, Guillermo
+-Grilli, Geronimo
+-Siminkowich, Alexis
 
 
 # Ordering
