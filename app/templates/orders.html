@@ -12,13 +12,13 @@
 </head>
 <body>
     <main class="container">
-        <h1 class="title">Lista de compra</h1>
+        <h1 class="title">Lista de compra ¨modificado¨</h1>
 
         <div class="columns">
             <div class="column is-12">
-                <button class="button is-primary is-pulled-right" style="background-color:#0000ff;" onclick="Modal.open()">
-                    <span class="icon"><i class="fas fa-asterisk"></i></span>
-                    <span>Agregar</span>
+                <button class="button is-primary is-pulled-right" onclick="Modal.open()">
+                    <span class="icon"><i class="fas fa-plus"></i></span>
+                    <span>Agregar ¨Cambiado por mi¨</span>
                 </button>
             </div>
         </div>
@@ -64,34 +64,34 @@
 
     <!-- Template handlebars de la tabla -->
     <script id="table-template" type="text/x-handlebars-template">
-        <table class="table is-striped">
+        <table class="table is-fullwidth is-hoverable">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Precio unitario</th>
-                    <th>Cantidad</th>
-                    <th>Precio total</th>
+                    <td>ID</td>
+                    <td>Descripción</td>
+                    <td>Precio unitario</td>
+                    <td>Cantidad</td>
+                    <td>Precio total</td>
                 </tr>
             </thead>
             <tbody>
                 {{# each products }}
                     <tr>
-                        <th>{{ id }}</th>
-                        <th>{{ name }}</th>
-                        <th>{{ price }}</th>
-                        <th>{{ quantity }}</th>
-                        <th>{{ totalPrice }}</th>
+                        <td>{{ id }}</td>
+                        <td>{{ description }}</td>
+                        <td>{{ price }}</td>
+                        <td>{{ quantity }}</td>
+                        <td>{{ totalPrice }}</td>
                     </tr>
                 {{/ each }}
             </tbody>
             <tfoot>
                 <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th>Total</th>
-                    <th>{{ orderPrice }}</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total</td>
+                    <td>{{ orderPrice }}</td>
                 </tr>
             </tfoot>
         </table>
