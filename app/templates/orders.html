@@ -74,6 +74,7 @@
                     <th>Precio unitario</th>
                     <th>Cantidad</th>
                     <th>Precio total</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,6 +85,10 @@
                         <td>{{ price }}</td>
                         <td>{{ quantity }}</td>
                         <td>{{ totalPrice }}</td>
+                        <td><button class="button" style="background-color:#F91F05">
+                        <span class="icon"><i class="fas fa-ban"></i></span>
+                        <span>Borrar linea</span>
+                        </button></td>
                     </tr>
                 {{/ each }}
             </tbody>
