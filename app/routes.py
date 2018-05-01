@@ -84,10 +84,10 @@ def addProductToOrder(pk):
 
     return jsonify(order.serialize), 201
 
-@app.route("/order/<pk_order>/product/<pk_product>", methods=['GET', 'PUT'])
+@app.route("/order/<pk_order>/product/<pk_product>", methods=['GET', 'PUT', 'DELETE'])
 def order_product_detail(pk_order, pk_product):
     """
-    Obtiene un producto de una orden y modifica un producto de una orden
+    Obtiene un producto de una orden, borra un articulo o  modifica un producto de una orden
 
     Si no se encuentra la orden, se responde con un 404.
     Si no se encuentra el producto, se responde con un 404
@@ -99,6 +99,10 @@ def order_product_detail(pk_order, pk_product):
         return jsonify({ 'error': 'not-found' }), 404
 
     if request.method == 'GET':
+        return jsonify(order_product.serialize)
+    elif request.method == 'DELETE':
+        order.product.delete(order_product)
+        db.session.commit()
         return jsonify(order_product.serialize)
     else:
         new_quantity = request.get_json()['quantity']
