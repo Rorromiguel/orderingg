@@ -80,7 +80,7 @@ const API = (function () {
      **/
 
     function deleteProduct(orderId, productId) {
-        const data = JSON.stringify({ product: product })
+        const data = JSON.stringify({ product: productId })
 
         return fetch(`/order/${ orderId }/product/${ productId }`,
             {
