@@ -104,7 +104,7 @@ def order_product_detail(pk_order, pk_product):
         order_product = order_product.serialize
         db.session.delete(order_product)
         db.session.commit()
-        return jsonify(order_product)
+        return jsonify(order_product.serialize)
     else:
         new_quantity = request.get_json()['quantity']
         new_product = request.get_json()['product']
