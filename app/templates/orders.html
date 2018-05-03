@@ -16,7 +16,7 @@
 
         <div class="columns">
             <div class="column is-12">
-                 <button class="button is-primary is-pulled-right" style="background-color:powderblue;" onclick="refs.modal.open()">
+                <button class="button is-primary is-pulled-right" style="background-color:powderblue;" onclick="refs.modal.open()">
                     <span class="icon"><i class="fas fa-asterisk"></i></span>
                     <span>Agregar</span>
                 </button>
@@ -74,6 +74,7 @@
                     <th>Precio unitario</th>
                     <th>Cantidad</th>
                     <th>Precio total</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,6 +85,10 @@
                         <td>{{ price }}</td>
                         <td>{{ quantity }}</td>
                         <td>{{ totalPrice }}</td>
+                        <td><button class="button" style="background-color:#F91F05" onclick="refs.api.deleteProduct(1,{{ id }})">
+                                <span class="icon"><i class="fas fa-ban"></i></span>
+                                <span>Borrar linea</span>
+                            </button></td>
                     </tr>
                 {{/ each }}
             </tbody>
