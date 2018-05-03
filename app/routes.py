@@ -102,7 +102,7 @@ def order_product_detail(pk_order, pk_product):
         return jsonify(order_product.serialize)
     elif request.method == 'DELETE':
         order_product = order_product.serialize
-        db.session.delete(order_product)
+        db.session.DELETE(order_product)
         db.session.commit()
         return jsonify(order_product.serialize)
     else:

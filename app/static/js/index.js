@@ -45,7 +45,8 @@
         API.addProduct(1, state.selectedProduct, state.quantity)
             .then(function (r) {
                 if (r.error) {
-                    alert("El producto ya existe en la orden")
+                    alert("El producto ya existe en la orden");
+                    console.error(r.error);
                 } else {
                     API.getOrder().then(function (data) {
                         refs.table.update(data);
