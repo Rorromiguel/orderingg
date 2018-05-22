@@ -1,0 +1,6 @@
+__pycache_/
+*.py[cod]
+*$py.class
+
+app.db
+test.db
