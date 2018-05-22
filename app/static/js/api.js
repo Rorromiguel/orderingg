@@ -115,12 +115,7 @@ const API = (function () {
         getProducts,
         getOrderProduct,
         editProduct,
-<<<<<<< HEAD
-        addProduct,
-        deleteProduct
-=======
         deleteProduct,
         addProduct
->>>>>>> upstream/master
     }
 })()

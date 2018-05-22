@@ -44,12 +44,8 @@
                         <div class="field">
                             <label class="label">Cantidad</label>
                             <div class="control">
-<<<<<<< HEAD
-                                <input id="quantity" class="input" type="number" min="1">
-=======
                                 <input id="quantity" class="input" type="number" min="1" value="1" required>
                                 <p class="help is-danger is-hidden">Por favor ingrese un numero mayor a 0</p>
->>>>>>> upstream/master
                             </div>
                         </div>
 
@@ -75,19 +71,11 @@
             <thead>
                 <tr>
                     <th>ID</th>
-<<<<<<< HEAD
                     <th>Descripción</th>
                     <th>Precio unitario</th>
                     <th>Cantidad</th>
                     <th>Precio total</th>
-                    <th>Borrar</th>
-=======
-                    <th>Nombre</th>
-                    <th>Precio unitario</th>
-                    <th>Cantidad</th>
-                    <th>Precio total</th>
                     <th></th>
->>>>>>> upstream/master
                 </tr>
             </thead>
             <tbody>
@@ -98,12 +86,6 @@
                         <td>{{ price }}</td>
                         <td>{{ quantity }}</td>
                         <td>{{ totalPrice }}</td>
-<<<<<<< HEAD
-                        <td><button class="delete-button" style="background-color:#F91F05" onclick="api.deleteProduct(1,{{ id }})">
-                                <span class="icon"><i class="fas fa-ban"></i></span>
-                                <span>Borrar linea</span>
-                            </button></td>
-=======
                         <td>
                             <button class="button is-small is-warning" onClick="refs.modal.openEdit({ id: {{ id }}, quantity: {{ quantity }} })">
                                 <i class="fa fa-edit"></i>
@@ -113,7 +95,6 @@
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
->>>>>>> upstream/master
                     </tr>
                 {{/ each }}
             </tbody>
