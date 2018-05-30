@@ -65,6 +65,18 @@ class OrderingTestCase(TestCase):
         ordp = OrderProduct.query.all()
         self.assertEqual(len(ordp),1, "Se creo el prod con cantidad negativa")
 
+    def test_GET_function(self):
+        o = Order(id=1)
+        db.session.add (o)
+        p = Product(id=1, name='Silla', price=200)
+        db.session.add(p)
+        orderProduct = OrderProduct(order_id=1, product_id=1, quantity=8, product=p)
+        db.session.add(orderProduct)
+        db.session.commit()
+        respGET=self.client.get('/order/1/product/1')
+        self.assert200(respGET, "No existe la orden o el producto")
+
+
 if __name__ == '__main__':
     unittest.main()
 
