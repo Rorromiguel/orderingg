@@ -36,13 +36,13 @@ class Ordering(unittest.TestCase):
 
         self.driver = webdriver.Chrome()
 
-    def test_title(self):
-        driver = self.driver
-        driver.get(self.baseURL)
-        add_product_button = driver.find_element_by_xpath('/html/body/main/div[1]/div/button')
-        add_product_button.click()
-        modal = driver.find_element_by_id('modal')
-        assert modal.is_displayed(), "El modal no esta visible"
+    # def test_title(self):
+    #   driver = self.driver
+    #   driver.get(self.baseURL)
+    #    add_product_button = driver.find_element_by_xpath('/html/body/main/div[1]/div/button')
+    #    add_product_button.click()
+    #    modal = driver.find_element_by_id('modal')
+    #    assert modal.is_displayed(), "El modal no esta visible"
 
     def tearDown(self):
         db.session.remove()

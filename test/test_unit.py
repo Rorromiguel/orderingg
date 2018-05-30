@@ -54,7 +54,7 @@ class OrderingTestCase(TestCase):
 
 # Punto 1) a) No se pueda crear instancia de OrderProduct si quantity negativo
 
-    def test_instance_of_OrderProduct_with_negative_quantity(seft):
+    def test_instance_of_OrderProduct_with_negative_quantity(self):
         o = Order(id=1)
         db.session.add (o)
         p = Product(id=1, name='Armario', price=800)
@@ -62,9 +62,8 @@ class OrderingTestCase(TestCase):
         orderProduct = OrderProduct(order_id=1, product_id=1, quantity=-1, product=p)
         db.session.add(orderProduct)
         db.session.commit()
-        r = self.client.put('order/1/product/1')
-        self.assert200(r, "el valor de cantidad debe ser positivo" ) 
-
+        ordp = OrderProduct.query.all()
+        self.assertEqual(len(ordp),1, "Se creo el prod con cantidad negativa")
 
 if __name__ == '__main__':
     unittest.main()
