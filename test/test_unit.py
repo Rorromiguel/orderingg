@@ -43,7 +43,6 @@ class OrderingTestCase(TestCase):
         # Verifica que la respuesta tenga el estado 200 (OK)
         self.assert200(resp, "Falló el POST")
         p = Product.query.all()
-
         # Verifica que en la lista de productos haya un solo producto
         self.assertEqual(len(p), 1, "No hay productos")
 
@@ -88,22 +87,17 @@ class OrderingTestCase(TestCase):
         db.session.commit()
 
         #Consulto la Orden
-        respGET=self.client.get('/order/1')
+        respGET=self.client.get('/order/1/product/1')
         
         #Corroboro que se halla cargado la Orden
         self.assert200(respGET, "No existe la orden")
 
         #Consulto el producto
-        product = json.loads(respGET.data)
-
-        #Corroboro que se halla cargado el Producto
-        self.assertEqual(len(product),1, "No se cargo el producto")
-
-        #Consulto la Orden y  el Producto
-        respGET=self.client.get('/order/1/product/1')
+        data = Product.query.all()
+        print(data)
         
-        #Corroboro que se halla cargado la Orden
-        self.assert200(respGET, "No existe la orden con el producto")
+        #Corroboro que se halla cargado el Producto
+        self.assertEqual(len(data),1, "No se cargo el producto")
 
 
     # Destruimos la base de datos de test
