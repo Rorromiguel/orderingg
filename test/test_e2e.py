@@ -36,13 +36,45 @@ class Ordering(unittest.TestCase):
 
         self.driver = webdriver.Chrome()
 
-    # def test_title(self):
-    #   driver = self.driver
-    #   driver.get(self.baseURL)
+    #def test_title(self):
+    #    driver = self.driver
+    #    driver.get(self.baseURL)
     #    add_product_button = driver.find_element_by_xpath('/html/body/main/div[1]/div/button')
     #    add_product_button.click()
     #    modal = driver.find_element_by_id('modal')
     #    assert modal.is_displayed(), "El modal no esta visible"
+
+    # Punto 1) c) Verifica que el bug de cargar un producto con cantidad negativa fue corregido
+    def test_solved_BUG_of_negative_quantity(self):
+        # Inicio la Orden y cargo en la BD
+        o = Order(id=1)
+        db.session.add(o)
+
+        # Inicio el Producto y cargo en la BD
+        p = Product(id=1, name = 'Armario', price = 800)
+        db.session.add(p)
+
+        db.session.commit()
+
+        #Abro el browser con la URL
+        driver = self.driver
+        driver.get(self.baseURL)
+        
+        #Clickeo en el boton para abrir el modal
+        driver.find_element_by_xpath("/html/body/main/div[1]/div/button").click()
+        
+        #Asigno cantidad -5 al campo cantidad
+        cant = driver.find_element_by_id("quantity")
+        cant.clear()
+        cant.send_keys('-5')
+
+        #Selecciono el producto
+        select_prod = driver.find_element_by_id('select-prod')
+        select_prod.select_by_visible_text('Armario')
+
+        #Corroboro que se cargo el producto con cantidad negativa
+        send = driver.find_element_by_id("save-button").is_enabled()
+        self.assertEqual(send, False, "Se pudo ingresar un producto con cantidad negativa")
 
     def tearDown(self):
         db.session.remove()
