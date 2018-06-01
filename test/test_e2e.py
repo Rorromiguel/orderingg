@@ -73,8 +73,8 @@ class Ordering(unittest.TestCase):
         select_prod.select_by_visible_text('Armario')
 
         #Corroboro que se cargo el producto con cantidad negativa
-        send = driver.find_element_by_id("save-button").is_enabled()
-        self.assertEqual(send, False, "Se pudo ingresar un producto con cantidad negativa")
+        guardar = driver.find_element_by_id("save-button")
+        self.assertFalse(guardar.is_enabled(), "Se pudo ingresar un producto con cantidad negativa")
 
     def tearDown(self):
         db.session.remove()
