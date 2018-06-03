@@ -63,18 +63,26 @@ class Ordering(unittest.TestCase):
         #Clickeo en el boton para abrir el modal
         driver.find_element_by_xpath("/html/body/main/div[1]/div/button").click()
         
-        #Asigno cantidad -5 al campo cantidad
-        cant = driver.find_element_by_id("quantity")
-        cant.clear()
-        cant.send_keys('-5')
-
         #Selecciono el producto
         select_prod = driver.find_element_by_id('select-prod')
-        select_prod.select_by_visible_text('Armario')
+        select_prod.click()
+        time.sleep(2)
+        selecciono = driver.find_element_by_xpath('//*[@id="select-prod"]/option[2]')
+        selecciono.click()
+        time.sleep(2)
+
+        #Asigno cantidad -5 al campo cantidad
+        cant = driver.find_element_by_id('quantity')
+        cant.clear()
+        cant.send_keys('-5')
+        time.sleep(2)
 
         #Corroboro que se cargo el producto con cantidad negativa
-        guardar = driver.find_element_by_id("save-button")
-        self.assertFalse(guardar.is_enabled(), "Se pudo ingresar un producto con cantidad negativa")
+        guardar = driver.find_element_by_id('save-button')
+        guardar.click()
+        prod = Product.query.all()
+        print(prod)
+        self.assertEqual(len(prod), 0, "Se pudo ingresar un producto con cantidad negativa")
 
     def tearDown(self):
         db.session.remove()
