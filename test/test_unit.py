@@ -74,7 +74,7 @@ class OrderingTestCase(TestCase):
     def test_GET_function(self):
         # Inicio la Orden y cargo en la BD
         o = Order(id=1)
-        db.session.add (o)
+        db.session.add(o)
 
         # Inicio el Producto y cargo en la BD
         p = Product(id=1, name='Silla', price=200)
