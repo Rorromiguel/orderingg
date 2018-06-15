@@ -70,7 +70,6 @@ class OrderingTestCase(TestCase):
         #Corroboro que se halla cargado la Orden con Cantidad Negativa
         self.assertEqual(len(ordp),1, "Se creo el prod con cantidad negativa")
 
-
     # Punto 1) b) Funcionamiento del GET
     def test_GET_function(self):
         # Inicio la Orden y cargo en la BD
