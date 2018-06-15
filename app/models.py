@@ -13,11 +13,11 @@ class Product(db.Model):
     name = db.Column(db.String(120), index=True)
     price = db.Column(db.Float, index=True)
 
-    def __repr__(self):
-        return '{}'.format(self.name)
+def __repr__(self):
+    return '{}'.format(self.name)
 
     @property
-    def serialize(self):
+def serialize(self):
         """
         Transforma el objeto en un formato serializable
         :return:
