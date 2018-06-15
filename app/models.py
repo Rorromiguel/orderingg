@@ -19,6 +19,7 @@ def __repr__(self):
     return '{}'.format(self.name)
 
     @property
+
 def serialize(self):
         """
         Transforma el objeto en un formato serializable
