@@ -9,6 +9,7 @@ from app.models import Product, Order, OrderProduct
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 class OrderingTestCase(TestCase):
     def create_app(self):
         config_name = 'testing'
