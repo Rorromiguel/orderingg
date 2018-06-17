@@ -1,5 +1,5 @@
 (function () {
-    const $totalPrice = document.querySelector('#total-price');
+    const $totalPrice = document.querySelector("#total-price");
 
     // Estado de la aplicacion
     const state = {
@@ -19,7 +19,7 @@
             const totalPrice = state.selectedProduct.price * state.quantity;
             $totalPrice.innerHTML = `Precio total: $ ${totalPrice}`
         } catch (e) {
-            $totalPrice.innerHTML = '';
+            $totalPrice.innerHTML = "";
         }
     }
 
@@ -100,7 +100,7 @@
      **/
     function init() {
         refs.modal = Modal.init({
-            el: '#modal',
+            el: "#modal",
             products: state.products,
             onProductSelect: onProductSelect,
             onChangeQunatity: onChangeQunatity,
@@ -110,7 +110,7 @@
 
         // Inicializamos la tabla
         refs.table = Table.init({
-            el: '#orders',
+            el: "#orders",
             data: state.order
         });
 
