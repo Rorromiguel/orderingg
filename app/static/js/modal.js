@@ -106,7 +106,7 @@ const Modal = (function () {
             $edit,
             $save,
             $editTitle: $modal.querySelector("#edit-title"),
-            $saveTitle: $modal.querySelector("#save-title"),
+            $saveTitle: $modal.querySelector("#save-title")
         };
 
         modal.close = close.bind(modal),
