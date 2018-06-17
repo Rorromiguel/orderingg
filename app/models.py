@@ -15,8 +15,7 @@ class Product(db.Model):
     price = db.Column(db.Float, index=True)
 
     def __repr__(self):
-    return '{}'.format(self.name)
-
+        return '{}'.format(self.name)
     @property
 
     def serialize(self):
