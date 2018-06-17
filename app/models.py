@@ -16,7 +16,10 @@ class Product(db.Model):
 
     def __repr__(self):
         return '{}'.format(self.name)
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
     @property
 
     def serialize(self):

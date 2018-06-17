@@ -1,5 +1,5 @@
 (function () {
-    const $totalPrice = document.querySelector('#total-price');
+    const $totalPrice = document.querySelector("#total-price");
 
     // Estado de la aplicacion
     const state = {
@@ -7,9 +7,9 @@
         selectedProduct: null,
         quantity: 0,
         order: API.getOrder()
-    }
+    };
 
-    const refs = {}
+    const refs = {};
 
     /**
      * Actualiza el valor del precio total
@@ -17,9 +17,9 @@
     function updateTotalPrice() {
         try {
             const totalPrice = state.selectedProduct.price * state.quantity;
-            $totalPrice.innerHTML = `Precio total: $ ${totalPrice}`
+            $totalPrice.innerHTML = `Precio total: $ ${totalPrice}`;
         } catch (e) {
-            $totalPrice.innerHTML = '';
+            $totalPrice.innerHTML = "";
         }
     }
 
@@ -43,7 +43,7 @@
 
     function onEditProduct() {
         API.editProduct(1, state.selectedProduct.id, state.quantity)
-            .then(function (r) {
+            .then(function () {
                 API.getOrder().then(function (data) {
                     refs.table.update(data);
                 });
@@ -86,7 +86,6 @@
             .then(function (r) {
                 if (r.error) {
                     alert("El producto ya existe en la orden");
-                    console.error(r.error);
                 } else {
                     API.getOrder().then(function (data) {
                         refs.table.update(data);
@@ -100,7 +99,7 @@
      **/
     function init() {
         refs.modal = Modal.init({
-            el: '#modal',
+            el: "#modal",
             products: state.products,
             onProductSelect: onProductSelect,
             onChangeQunatity: onChangeQunatity,
@@ -110,16 +109,16 @@
 
         // Inicializamos la tabla
         refs.table = Table.init({
-            el: '#orders',
+            el: "#orders",
             data: state.order
         });
 
         refs.global = {
             onDeleteProduct
-        }
+        };
     }
 
     init();
     window.refs = refs;
-})()
+})();
 
