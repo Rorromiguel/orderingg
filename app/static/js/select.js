@@ -76,7 +76,7 @@
         this.$select.dispatchEvent(e);
     }
 
-    function onChange(e) {
+    function onChange() {
         const product = this.getSelected();
 
         this.isValid = product;
