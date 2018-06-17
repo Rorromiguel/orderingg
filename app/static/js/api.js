@@ -37,8 +37,8 @@
      * Edita un producto de una orden
      *
      */
-    function editProduct(orderId, productId, quantity, product) {
-        const data = JSON.stringify({ quantity: quantity, product: product });
+    function editProduct(orderId, productId, quantity) {
+        const data = JSON.stringify({ quantity: quantity});
 
         return fetch(`/order/${ orderId }/product/${ productId }`,
             {
