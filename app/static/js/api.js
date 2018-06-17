@@ -38,7 +38,7 @@ const API = (function () {
      *
      */
     function editProduct(orderId, productId, quantity, product) {
-        const data = JSON.stringify({ quantity: quantity, product: product })
+        const data = JSON.stringify({ quantity: quantity, product: product });
 
         return fetch(`/order/${ orderId }/product/${ productId }`,
             {
@@ -72,7 +72,7 @@ const API = (function () {
      * Agrega un producto a una orden
      **/
     function addProduct(orderId, product, quantity) {
-        const data = JSON.stringify({ quantity: quantity, product: product })
+        const data = JSON.stringify({ quantity: quantity, product: product });
 
         return fetch(`/order/${ orderId }/product`,
             {
@@ -94,7 +94,7 @@ const API = (function () {
      **/
 
     function deleteProduct(orderId, productId) {
-        const data = JSON.stringify({ product: productId })
+        const data = JSON.stringify({ product: productId });
 
         return fetch(`/order/${ orderId }/product/${ productId }`,
             {
@@ -117,5 +117,5 @@ const API = (function () {
         editProduct,
         deleteProduct,
         addProduct
-    }
-})()
+    };
+})();
