@@ -47,7 +47,7 @@
     }
 
     function getSelected() {
-        selectedIdx = this.$select.selectedIndex;
+        const selectedIdx = this.$select.selectedIndex;
         const $option = this.$select.options[selectedIdx];
         const id = parseInt($option.value);
 
