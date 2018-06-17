@@ -1,4 +1,4 @@
-const API = (function () {
+(function () {
     /**
      * Obtiene una orden desde el backend
      *

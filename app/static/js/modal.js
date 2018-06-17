@@ -1,4 +1,4 @@
-const Modal = (function () {
+(function () {
 
     const Quantity = {
         /**
