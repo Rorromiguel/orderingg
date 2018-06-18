@@ -1,3 +1,4 @@
+"""Test_unit."""
 import os
 import unittest
 
@@ -8,6 +9,7 @@ from app import create_app, db
 from app.models import Product, Order, OrderProduct
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 class OrderingTestCase(TestCase):
     def create_app(self):
@@ -31,7 +33,7 @@ class OrderingTestCase(TestCase):
         data = json.loads(resp.data)
 
         assert len(data) == 0, "La base de datos tiene productos"
-
+    
     def test_crear_producto(self):
         data = {
             'name': 'Tenedor',
@@ -45,7 +47,6 @@ class OrderingTestCase(TestCase):
         p = Product.query.all()
         # Verifica que en la lista de productos haya un solo producto
         self.assertEqual(len(p), 1, "No hay productos")
-
 
     # Punto 1) a) No se pueda crear instancia de OrderProduct si quantity negativo
     def test_instance_of_OrderProduct_with_negative_quantity(self):
@@ -69,12 +70,11 @@ class OrderingTestCase(TestCase):
         #Corroboro que se halla cargado la Orden con Cantidad Negativa
         self.assertEqual(len(ordp),1, "Se creo el prod con cantidad negativa")
 
-
     # Punto 1) b) Funcionamiento del GET
     def test_GET_function(self):
         # Inicio la Orden y cargo en la BD
         o = Order(id=1)
-        db.session.add (o)
+        db.session.add(o)
 
         # Inicio el Producto y cargo en la BD
         p = Product(id=1, name='Silla', price=200)

@@ -1,3 +1,4 @@
+"""Test_e2e."""
 import unittest
 import os
 import time
@@ -80,7 +81,7 @@ class Ordering(unittest.TestCase):
         #Corroboro que se cargo el producto con cantidad negativa
         guardar = driver.find_element_by_id('save-button')
         guardar.click()
-        prod = OrderProduct.query.all()
+        prod = o.products
         print(prod)
         self.assertEqual(len(prod), 0, "Se pudo ingresar un producto con cantidad negativa")
 

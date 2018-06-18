@@ -1,3 +1,4 @@
+"""Routes."""
 from sqlalchemy import and_
 
 from app import db
@@ -14,9 +15,12 @@ def hello():
 @rest.route("/product", methods=['GET', 'POST'])
 def products():
     """
+    Products
+
     Endpoint para obtener todos los productos o crear uno nuevo
     :return:
     """
+
     if request.method == 'POST':
         # Crea un nuevo producto recibiendo un JSON con atributos name y price
         # Ejemplo: {'name': 'Tenedor', 'price': 50}
@@ -32,6 +36,8 @@ def products():
 @rest.route("/order", methods=['GET'])
 def orders():
     """
+    Ordenes
+    
     Obtiene todas las ordenes
     """
 
