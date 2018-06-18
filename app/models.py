@@ -84,7 +84,7 @@ class OrderProduct(db.Model):
         Computa el precio total del producto
         """
         return self.product.price * self.quantity
-
+    
     @property
     def serialize(self):
         """

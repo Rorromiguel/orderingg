@@ -32,7 +32,7 @@ class OrderingTestCase(TestCase):
         data = json.loads(resp.data)
 
         assert len(data) == 0, "La base de datos tiene productos"
-
+    
     def test_crear_producto(self):
         data = {
             'name': 'Tenedor',
@@ -46,7 +46,6 @@ class OrderingTestCase(TestCase):
         p = Product.query.all()
         # Verifica que en la lista de productos haya un solo producto
         self.assertEqual(len(p), 1, "No hay productos")
-
 
     # Punto 1) a) No se pueda crear instancia de OrderProduct si quantity negativo
     def test_instance_of_OrderProduct_with_negative_quantity(self):
