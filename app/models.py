@@ -25,10 +25,11 @@ class Product(db.Model):
     def serialize(self):
         """
         Serializacion
-        
+
         Transforma el objeto en un formato serializable
         :return:
         """
+
         return {
             'id': self.id,
             'name': self.name,
@@ -39,19 +40,23 @@ class Product(db.Model):
 class Order(db.Model):
     """
     Clase orden
+
     attr id: la clave primaria de la orden
     """
+
     id = db.Column(db.Integer, primary_key=True)
     products = relationship('OrderProduct')
-
 
     def __repr__(self):
         return '<Order {}>'.format(self.id)
     @hybrid_property
     def orderPrice(self):
         """
+        Precio total
+
         Computa el precio total de la orden
         """
+
         return sum([
             product.price * product.quantity for product in self.products
         ])
@@ -59,9 +64,12 @@ class Order(db.Model):
     @property
     def serialize(self):
         """
+        Serializacion
+
         Transforma el objeto en un formato serializable
         :return:
         """
+
         return {
             'id': self.id,
             'products': [
@@ -73,8 +81,11 @@ class Order(db.Model):
 
 class OrderProduct(db.Model):
     """
-    Clase OrderProduct, tabla transpuesta
+    OrderProduct
+
+    Tabla transpuesta
     """
+
     order_id = db.Column(db.Integer, db.ForeignKey('order.id'), primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'), primary_key=True)
     product = relationship('Product')
@@ -87,16 +98,22 @@ class OrderProduct(db.Model):
     @hybrid_property
     def totalPrice(self):
         """
+        Precio Total
+
         Computa el precio total del producto
         """
+
         return self.product.price * self.quantity
     
     @property
     def serialize(self):
         """
+        Serializacion
+
         Transforma el objeto en un formato serializable
         :return:
         """
+
         return {
             'id': self.product.id,
             'name': self.product.name,
